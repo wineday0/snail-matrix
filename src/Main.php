@@ -7,6 +7,8 @@ namespace Snail;
  */
 class Main
 {
+    public int $matrixHeight = 0;
+
     /**
      * @return array[]|string
      */
@@ -18,9 +20,9 @@ class Main
         }
 
         $result = [];
-        $matrixHeight = count($matrix);
-        for ($i = 1; $i <= $matrixHeight; $i++) {
-            $this->sortMatrix($matrix, $matrixHeight, $result);
+        $this->matrixHeight = count($matrix);
+        for ($i = 1; $i <= $this->matrixHeight; $i++) {
+            $this->sortMatrix($matrix, $this->matrixHeight, $result);
         }
 
         return $this->prepareResultFormat($result);
@@ -80,7 +82,7 @@ class Main
      * @param array $result
      * @return string
      */
-    protected function prepareResultFormat(array $result): string
+    public function prepareResultFormat(array $result): string
     {
         return json_encode($result);
     }
