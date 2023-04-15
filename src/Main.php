@@ -82,6 +82,6 @@ class Main
      */
     protected function prepareResultFormat(array $result): string
     {
-        return implode(', ', $result);
+        return json_encode($result);
     }
 }
